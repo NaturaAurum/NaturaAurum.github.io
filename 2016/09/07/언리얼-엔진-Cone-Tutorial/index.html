@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+          <head>
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+            
+            <title>
+                언리얼 엔진 Cone Tutorial | N.A&#39;s Storage
+            </title>
+            <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            
+  
+
+  
+            </meta>
+        </meta><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    </head>
+    <body>
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            <div class="nav-wrapper" style="background-color:undefined">
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    N.A&#39;s Storage
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/">
+                                홈
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/archives">
+                                아카이브
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">언리얼 엔진 Cone Tutorial</h1>
+
+          <section class="post-info">
+            <span class="post-date">2016/9/7</span>
+            
+            
+            <span class="post-tags">
+              <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/Tutorial/">Tutorial</a></li><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/UnrealEngine/">UnrealEngine</a></li></ul>
+            </span>
+            
+          </section>
+
+          <section class="post-content">
+            <h2 id="Unreal-Engine-4-Tutorial-1"><a href="#Unreal-Engine-4-Tutorial-1" class="headerlink" title="Unreal Engine 4 Tutorial 1"></a>Unreal Engine 4 Tutorial 1</h2><p>제대로 시작해보자고 해서 다시 진행해본 c++ 튜토리얼이다.</p>
+<p>먼저 언리얼 에디터에서 새로운 C++ Class를 만들어준다.</p>
+<p><img src="/uploads/UnrealStudy/1/1.png" alt="C++ 클래스 생성"></p>
+<p>그럼 부모 클래스 선택 메누가 열리는데,</p>
+<p>여기서 Actor를 선택해준다.<br>( 액터가 언리얼 엔진 레벨에서 존재할 수  있는 가장 기본 클래스 Unity = Monobehaviour ?? )</p>
+<p><img src="/uploads/UnrealStudy/1/2.png" alt="클래스 선택"></p>
+<p>액터 이름을 지어야 하는데, 원하는 클래스 이름으로 짓는다.</p>
+<p>그 다음 클래스 생성을 클릭.</p>
+<p><img src="/uploads/UnrealStudy/1/3.png" alt="액터 이름 짓기"></p>
+<p>그럼 지은 클래스 이름으로 .h파일과 .cpp 파일이 생성되면서 VS에서 자동으로 열린다.</p>
+<p>다음은 소스 작성.</p>
+<p>.h 파일에서 추가</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span> runningTime;</div></pre></td></tr></table></figure>
+<p>.cpp 파일에서 추가</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">FVector newPos = GetActorLocation();</div><div class="line"><span class="keyword">float</span> deltaHeight = (FMath::Sin(rinningTime + DeltaTime) - FMath::Sin(runningTime));</div><div class="line">newPos.Z += deltaHeight * <span class="number">20.0f</span>;</div><div class="line">runningTime += DeltaTime;</div><div class="line">SetActorLocation(newPos);</div></pre></td></tr></table></figure>
+<p><img src="/uploads/UnrealStudy/1/4.png" alt=".h"><br><img src="/uploads/UnrealStudy/1/5.png" alt=".cpp"></p>
+<p>소스 작성이 끝났으니 컴파일인데 VS에서도 가능하고, 에디터에서도 가능하다.</p>
+<p><img src="/uploads/UnrealStudy/1/6.png" alt="컴파일 VS"><br><img src="/uploads/UnrealStudy/1/7.png" alt="컴파일 에디터"></p>
+<p>이제 레벨에다가 세팅을 해야한다.</p>
+<p>에디터에서 콘텐츠 브라우저에서 C++ Classes 라는 폴더를 찾아 펼친다.</p>
+<p>그럼 프로젝트 생성시 정해준 이름으로 되어있는 폴더가 있다.</p>
+<p>안쪽에 보면 직접 만든 액터가 있다.</p>
+<p><img src="/uploads/UnrealStudy/1/8.png" alt="Actor"></p>
+<p>그 액터를 레벨 에디터 창에 드래그 하면 인스턴스가 생성된다.</p>
+<p><img src="/uploads/UnrealStudy/1/9.png" alt="Actor Instance"></p>
+<p>이제 기본 지오메트리인 Cone을 추가해서 플레이를 눌러보면 위 아래로 왔다갔다 할 것이다.</p>
+<p><img src="/uploads/UnrealStudy/1/10.png" alt="Add Component"></p>
+<p>액터 소스</p>
+<p>.h</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"GameFramework/Actor.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"FloatingActor.generated.h"</span></span></div><div class="line"></div><div class="line">UCLASS()</div><div class="line"><span class="keyword">class</span> MYUNREALGAME_API AFloatingActor : <span class="keyword">public</span> AActor</div><div class="line">&#123;</div><div class="line">	GENERATED_BODY()</div><div class="line">	</div><div class="line"><span class="keyword">public</span>:	</div><div class="line">	<span class="comment">// Sets default values for this actor's properties</span></div><div class="line">	AFloatingActor();</div><div class="line"></div><div class="line">	<span class="comment">// Called when the game starts or when spawned</span></div><div class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">BeginPlay</span><span class="params">()</span> override</span>;</div><div class="line">	</div><div class="line">	<span class="comment">// Called every frame</span></div><div class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Tick</span><span class="params">( <span class="keyword">float</span> DeltaSeconds )</span> override</span>;</div><div class="line"></div><div class="line">	<span class="keyword">float</span> runningTime;</div><div class="line">	</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>.cpp</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MyUnrealGame.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"FloatingActor.h"</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Sets default values</span></div><div class="line">AFloatingActor::AFloatingActor()</div><div class="line">&#123;</div><div class="line"> 	<span class="comment">// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.</span></div><div class="line">	PrimaryActorTick.bCanEverTick = <span class="literal">true</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Called when the game starts or when spawned</span></div><div class="line"><span class="keyword">void</span> AFloatingActor::BeginPlay()</div><div class="line">&#123;</div><div class="line">	Super::BeginPlay();</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Called every frame</span></div><div class="line"><span class="keyword">void</span> AFloatingActor::Tick( <span class="keyword">float</span> DeltaTime )</div><div class="line">&#123;</div><div class="line">	Super::Tick( DeltaTime );</div><div class="line"></div><div class="line">	FVector newPos = GetActorLocation();</div><div class="line">	<span class="keyword">float</span> deltaHeight = ( FMath::Sin( runningTime + DeltaTime ) - FMath::Sin( runningTime ) );</div><div class="line">	newPos.Z += deltaHeight * <span class="number">20.0f</span>;</div><div class="line">	runningTime += DeltaTime;</div><div class="line">	SetActorLocation( newPos );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+            <a class="post-prev pager-item" href="/2016/09/07/Unity-Mecanim-to-Ragdoll/" >
+              <strong class="article-nav-caption">새로운</strong>
+              <p class="post-nav-title">Unity Mecanim to Ragdoll</p>
+            </a>
+          
+          
+            <a class="post-next pager-item" href="/2016/08/29/잡담/">
+              <strong class="article-nav-caption">오래된</strong>
+              <p class="post-nav-title">잡담.</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <!--%- partial('partials/comments') %-->
+
+    </div>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>Powered By <a href="http://hexo.io/" target="_blank">Hexo</a>
+    - Theme <a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>
+    - Edit <a href="https://github.com/NaturaAurum">NaturaAurum</a></p>
+    <p>
+        &copy; 2016 Taewoo Kim
+    </p>
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    </body>
+</html>
